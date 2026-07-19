@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>動物翻翻樂 V2</title>
+  <!-- 幼兒 PWA 行動裝置優化設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="動物翻翻樂 V2">
+  <meta name="theme-color" content="#bde0fe">
+  
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  
+  <!-- 導入 Google Fonts 可愛字型 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 滿版背景，會根據選擇的主題切換 class (如 theme-forest, theme-ocean 等) -->
+  <div class="dynamic-background" id="bgOverlay">
+    <!-- 大氣粒子容器 (落葉、氣泡、雪花等) -->
+    <div class="particle-container" id="particleContainer"></div>
+  </div>
+
+  <!-- 主遊戲視窗 (iPad 4:3 至 16:9 自適應置中) -->
+  <div class="game-container">
+    
+    <!-- 關卡選擇畫面 -->
+    <section class="screen selection-screen" id="selectionScreen">
+      <header class="selection-header">
+        <span class="mascot" id="mascotIcon">🐯</span>
+        <h1 class="main-title">動物翻翻樂 V2</h1>
+        <p class="sub-title">選一個你喜歡的世界吧！</p>
+      </header>
+      
+      <div class="theme-grid">
+        <button class="theme-card forest" data-theme="forest">
+          <div class="theme-icon">🌲</div>
+          <div class="theme-info">
+            <span class="theme-name">森林動物</span>
+            <span class="theme-cover-hint">點開橡果 🌰</span>
+          </div>
+        </button>
+        
+        <button class="theme-card ocean" data-theme="ocean">
+          <div class="theme-icon">🌊</div>
+          <div class="theme-info">
+            <span class="theme-name">海洋世界</span>
+            <span class="theme-cover-hint">點開貝殼 🐚</span>
+          </div>
+        </button>
+        
+        <button class="theme-card farm" data-theme="farm">
+          <div class="theme-icon">🚜</div>
+          <div class="theme-info">
+            <span class="theme-name">農場派對</span>
+            <span class="theme-cover-hint">點開木門 🚪</span>
+          </div>
+        </button>
+        
+        <button class="theme-card dinosaur" data-theme="dinosaur">
+          <div class="theme-icon">🦖</div>
+          <div class="theme-info">
+            <span class="theme-name">恐龍樂園</span>
+            <span class="theme-cover-hint">點開恐龍蛋 🥚</span>
+          </div>
+        </button>
+        
+        <button class="theme-card insect" data-theme="insect">
+          <div class="theme-icon">🐞</div>
+          <div class="theme-info">
+            <span class="theme-name">昆蟲王國</span>
+            <span class="theme-cover-hint">點開樹葉 🍃</span>
+          </div>
+        </button>
+        
+        <button class="theme-card polar" data-theme="polar">
+          <div class="theme-icon">❄️</div>
+          <div class="theme-info">
+            <span class="theme-name">極地冰原</span>
+            <span class="theme-cover-hint">點開冰晶 ❄️</span>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- 遊戲卡牌畫面 (預設隱藏) -->
+    <section class="screen gameplay-screen hidden" id="gameplayScreen">
+      <!-- 頂部資訊列 -->
+      <header class="game-header">
+        <button class="header-btn" id="backBtn" aria-label="返回選單">
+          <span class="btn-icon">🏠</span>
+          <span class="btn-text">選單</span>
+        </button>
+        
+        <div class="header-center">
+          <span class="current-theme-title" id="themeTitle">森林動物</span>
+          <!-- 進度條 -->
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progressBar"></div>
+          </div>
+        </div>
+        
+        <div class="header-right">
+          <!-- 星星進度計數器 -->
+          <div class="score-display">
+            <span class="star-icon">⭐</span>
+            <span id="flipCount">0</span> / 12
+          </div>
+        </div>
+      </header>
+
+      <!-- 遊戲動物板區域 (3x4 或 4x3 網格) -->
+      <main class="board-wrapper">
+        <div class="animal-board" id="animalBoard">
+          <!-- 12 個大格子由 JavaScript 動態生成 -->
+        </div>
+      </main>
+
+      <!-- 底部控制列 -->
+      <footer class="game-footer">
+        <button class="footer-btn" id="soundBtn" aria-label="切換聲音">
+          <span class="btn-icon">🔊</span>
+          <span class="btn-text">有聲音</span>
+        </button>
+        
+        <div class="footer-hint" id="footerHint">找找看，把所有卡片翻開吧！</div>
+        
+        <button class="footer-btn" id="resetBtn" aria-label="重新開始">
+          <span class="btn-icon">🎈</span>
+          <span class="btn-text">重開</span>
+        </button>
+      </footer>
+    </section>
+  </div>
+
+  <!-- 慶祝用的滿版 Canvas 與氣球/浮動裝飾疊加層 -->
+  <canvas id="confettiCanvas"></canvas>
+  <div class="celebration-overlay" id="celebrationOverlay"></div>
+
+  <!-- 註冊 Service Worker 與載入邏輯 -->
+  <script src="app.js"></script>
+</body>
+</html>

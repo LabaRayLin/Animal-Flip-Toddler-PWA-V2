@@ -1,0 +1,695 @@
+/* CSS 重設與基礎設定 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #f0fdf4;
+  color: #1e3a1e;
+  touch-action: none; /* 禁用縮放與默認手勢 */
+  overscroll-behavior: none;
+}
+
+/* ===== 滿版動態背景與主題色彩 ===== */
+.dynamic-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: background 1s ease-in-out;
+  background: linear-gradient(180deg, #e8f5e9 0%, #c8e6c9 100%);
+  overflow: hidden;
+}
+
+/* 森林主題背景 */
+.theme-bg-forest {
+  background: linear-gradient(180deg, #d4edda 0%, #c3e6cb 50%, #a1d6b2 100%);
+}
+/* 海洋主題背景 */
+.theme-bg-ocean {
+  background: linear-gradient(180deg, #e0f7fa 0%, #b2ebf2 50%, #80deea 100%);
+}
+/* 農場主題背景 */
+.theme-bg-farm {
+  background: linear-gradient(180deg, #fffde7 0%, #fff9c4 50%, #ffe082 100%);
+}
+/* 恐龍主題背景 */
+.theme-bg-dinosaur {
+  background: linear-gradient(180deg, #ffebee 0%, #ffcdd2 50%, #ef9a9a 100%);
+}
+/* 昆蟲主題背景 */
+.theme-bg-insect {
+  background: linear-gradient(180deg, #f1f8e9 0%, #dcedc8 50%, #c5e1a5 100%);
+}
+/* 極地主題背景 */
+.theme-bg-polar {
+  background: linear-gradient(180deg, #e0f2f1 0%, #b2dfdb 50%, #80cbc4 100%);
+}
+
+/* ===== 大氣粒子效果 ===== */
+.particle-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  pointer-events: none;
+  animation: fallEffect linear infinite;
+}
+
+@keyframes fallEffect {
+  0% {
+    transform: translateY(-10vh) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg) translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* 向上漂浮粒子 (適用於海洋) */
+@keyframes floatUpEffect {
+  0% {
+    transform: translateY(110vh) translateX(0) scale(0.6);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(30px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* ===== 主要容器：iPad 比例置中，極致質感 ===== */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 96vw;
+  height: calc(96vw * 0.72);
+  max-height: 96vh;
+  max-width: calc(96vh / 0.72);
+  
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 40px;
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.12), 
+    inset 0 0 0 3px rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+}
+
+/* 螢幕視窗基礎 */
+.screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3vh 3vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.15), opacity 0.5s ease;
+}
+
+.screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+}
+
+/* ===== 關卡選擇畫面 (Selection Screen) ===== */
+.selection-screen {
+  justify-content: flex-start;
+  gap: 3vh;
+}
+
+.selection-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5vh;
+  margin-top: 1vh;
+}
+
+.mascot {
+  font-size: 5.5vh;
+  display: inline-block;
+  animation: bounceMascot 3s infinite ease-in-out;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+}
+
+@keyframes bounceMascot {
+  0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+  50% { transform: translateY(-12px) scale(1.1) rotate(5deg); }
+}
+
+.main-title {
+  font-size: 4.2vh;
+  font-weight: 600;
+  color: #1b5e20;
+  text-shadow: 0 3px 6px rgba(255, 255, 255, 0.9);
+}
+
+.sub-title {
+  font-size: 2.3vh;
+  color: #388e3c;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.7);
+}
+
+/* 關卡卡片網格 (3x2 佈局) */
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3vh 2.5vw;
+  width: 95%;
+  flex-grow: 1;
+  margin-bottom: 2vh;
+}
+
+/* 關卡按鈕/卡片 */
+.theme-card {
+  border: none;
+  outline: none;
+  border-radius: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 2vh 2vw;
+  gap: 1.5vw;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+  box-shadow: 
+    0 10px 20px rgba(0,0,0,0.08),
+    inset 0 -6px 12px rgba(0,0,0,0.1),
+    inset 0 6px 12px rgba(255,255,255,0.3);
+}
+
+.theme-card:active {
+  transform: scale(0.93);
+}
+
+.theme-icon {
+  font-size: 7vh;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.15));
+  transition: transform 0.3s ease;
+}
+
+.theme-card:hover .theme-icon {
+  transform: scale(1.15) rotate(10deg);
+}
+
+.theme-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5vh;
+}
+
+.theme-name {
+  font-size: 3vh;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.theme-cover-hint {
+  font-size: 1.8vh;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0,0,0,0.12);
+  padding: 0.3vh 1.2vw;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+/* 關卡卡片個別配色 */
+.theme-card.forest {
+  background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+  border: 4px solid #a5d6a7;
+}
+.theme-card.ocean {
+  background: linear-gradient(135deg, #00b0ff 0%, #00838f 100%);
+  border: 4px solid #80deea;
+}
+.theme-card.farm {
+  background: linear-gradient(135deg, #ffb300 0%, #ff8f00 100%);
+  border: 4px solid #ffe082;
+}
+.theme-card.dinosaur {
+  background: linear-gradient(135deg, #ff5722 0%, #c62828 100%);
+  border: 4px solid #ffab91;
+}
+.theme-card.insect {
+  background: linear-gradient(135deg, #8bc34a 0%, #558b2f 100%);
+  border: 4px solid #c5e1a5;
+}
+.theme-card.polar {
+  background: linear-gradient(135deg, #00acc1 0%, #006064 100%);
+  border: 4px solid #b2dfdb;
+}
+
+/* ===== 遊戲中畫面 (Gameplay Screen) ===== */
+.gameplay-screen {
+  justify-content: space-between;
+}
+
+/* 遊戲頂部控制列 */
+.game-header {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+/* 可愛按鈕 (選單 / 聲音 / 重開) */
+.header-btn, .footer-btn {
+  height: 8vh;
+  padding: 0 3vw;
+  border-radius: 40px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  outline: none;
+  font-family: inherit;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  font-size: 2.2vh;
+  font-weight: bold;
+}
+
+.header-btn {
+  background: linear-gradient(135deg, #ff7043 0%, #f4511e 100%);
+  border: 3px solid #ffccbc;
+  box-shadow: 0 6px 12px rgba(244, 81, 30, 0.25);
+}
+
+.header-btn:active, .footer-btn:active {
+  transform: translateY(3px) scale(0.97);
+}
+
+/* 頂部中間 (主題名稱 + 進度條) */
+.header-center {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5vh;
+  max-width: 45%;
+  margin: 0 2vw;
+}
+
+.current-theme-title {
+  font-size: 2.6vh;
+  font-weight: 600;
+  color: inherit;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 2vh;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 2.5px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff8a65, #ffb74d, #aed581, #4db6ac);
+  background-size: 200% 100%;
+  animation: barGradientShift 4s linear infinite;
+  border-radius: 8px;
+  transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+}
+
+@keyframes barGradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 右側進度計數 */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.score-display {
+  font-size: 2.5vh;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #66bb6a 0%, #388e3c 100%);
+  padding: 0.8vh 2.5vw;
+  border-radius: 30px;
+  box-shadow: 0 6px 12px rgba(56, 142, 60, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 2.5px solid #c8e6c9;
+}
+
+.star-icon {
+  font-size: 2.6vh;
+  display: inline-block;
+  animation: rotateStar 3s infinite linear;
+}
+
+@keyframes rotateStar {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* ===== 遊戲棋盤版面 (4x3 網格，卡片超大) ===== */
+.board-wrapper {
+  width: 100%;
+  height: 72%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animal-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2.2vh 1.8vw;
+  width: 100%;
+  height: 100%;
+  padding: 2.2vh 2vw;
+  border-radius: 32px;
+  position: relative;
+  transition: all 0.5s ease;
+  
+  /* 板子立體感邊框 */
+  border: 8px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.12),
+    inset 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* 不同主題的板子風格 */
+.board-theme-forest {
+  border-color: #5d4037;
+  background: #a5d6a7;
+  box-shadow: 0 15px 35px rgba(93, 64, 55, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
+}
+.board-theme-ocean {
+  border-color: #006064;
+  background: #80deea;
+  box-shadow: 0 15px 35px rgba(0, 96, 100, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
+}
+.board-theme-farm {
+  border-color: #8d6e63;
+  background: #ffe082;
+  box-shadow: 0 15px 35px rgba(141, 110, 99, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
+}
+.board-theme-dinosaur {
+  border-color: #3e2723;
+  background: #ffab91;
+  box-shadow: 0 15px 35px rgba(62, 39, 35, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
+}
+.board-theme-insect {
+  border-color: #33691e;
+  background: #c5e1a5;
+  box-shadow: 0 15px 35px rgba(51, 105, 30, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
+}
+.board-theme-polar {
+  border-color: #004d40;
+  background: #e0f2f1;
+  box-shadow: 0 15px 35px rgba(0, 77, 64, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* ===== 3D 卡片與翻轉效果 ===== */
+.cell {
+  perspective: 1000px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animal-card {
+  width: 95%;
+  height: 95%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.25);
+  cursor: pointer;
+}
+
+.animal-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.12),
+    inset 0 -4px 8px rgba(0, 0, 0, 0.12),
+    inset 0 4px 8px rgba(255, 255, 255, 0.3);
+}
+
+/* ===== 卡片背面 (Unflipped) ===== */
+.card-front {
+  z-index: 2;
+  transform: rotateY(0deg) translateZ(1px);
+  border: 5px solid #ffffff;
+  overflow: hidden;
+}
+
+/* 卡片封面大型裝飾圖示 (Acorn, Shell, etc. 依主題動態設定) */
+.card-front-icon {
+  font-size: 6.5vh;
+  filter: drop-shadow(0 3px 5px rgba(0,0,0,0.15));
+  animation: wobbleCardIcon 4s infinite ease-in-out;
+}
+
+@keyframes wobbleCardIcon {
+  0%, 100% { transform: rotate(-5deg) scale(1); }
+  50% { transform: rotate(5deg) scale(1.05); }
+}
+
+.animal-card:active:not(.flipped) {
+  transform: scale(0.9);
+}
+
+/* 各主題卡片覆蓋正面配色 */
+.card-front-forest {
+  background: radial-gradient(circle at 35% 35%, #81c784 0%, #388e3c 100%);
+  border-color: #e8f5e9;
+}
+.card-front-ocean {
+  background: radial-gradient(circle at 35% 35%, #4fc3f7 0%, #0288d1 100%);
+  border-color: #e0f7fa;
+}
+.card-front-farm {
+  background: radial-gradient(circle at 35% 35%, #ffca28 0%, #f57c00 100%);
+  border-color: #fffde7;
+}
+.card-front-dinosaur {
+  background: radial-gradient(circle at 35% 35%, #ff8a65 0%, #d84315 100%);
+  border-color: #ffebee;
+}
+.card-front-insect {
+  background: radial-gradient(circle at 35% 35%, #aed581 0%, #558b2f 100%);
+  border-color: #f1f8e9;
+}
+.card-front-polar {
+  background: radial-gradient(circle at 35% 35%, #80deea 0%, #00838f 100%);
+  border-color: #e0f2f1;
+}
+
+/* ===== 卡片正面 (Flipped, 顯示動物) ===== */
+.card-back {
+  transform: rotateY(180deg) translateZ(1px);
+  border: 5px solid #ffffff;
+}
+
+.card-back::before {
+  content: "";
+  position: absolute;
+  top: 6%;
+  left: 6%;
+  right: 6%;
+  bottom: 6%;
+  border-radius: 18px;
+  border: 2.5px dashed rgba(255, 255, 255, 0.45);
+  pointer-events: none;
+}
+
+/* 動物 Emoji 圖案 */
+.animal-emoji {
+  font-size: 8.5vh;
+  line-height: 1;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+}
+
+.animal-card.flipped .animal-emoji {
+  animation: revealBounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.3);
+}
+
+@keyframes revealBounce {
+  0% { transform: scale(0) rotate(-15deg); }
+  70% { transform: scale(1.15) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* 卡片正面背景色群組 */
+.card-back.pink { background: radial-gradient(circle at 30% 30%, #ffc1e3 0%, #f48fb1 100%); }
+.card-back.blue { background: radial-gradient(circle at 30% 30%, #b3e5fc 0%, #81d4fa 100%); }
+.card-back.orange { background: radial-gradient(circle at 30% 30%, #ffe0b2 0%, #ffcc80 100%); }
+.card-back.purple { background: radial-gradient(circle at 30% 30%, #e1bee7 0%, #ce93d8 100%); }
+.card-back.green { background: radial-gradient(circle at 30% 30%, #c8e6c9 0%, #a5d6a7 100%); }
+.card-back.yellow { background: radial-gradient(circle at 30% 30%, #fff9c4 0%, #fff59d 100%); }
+
+/* ===== 底部控制列 ===== */
+.game-footer {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+#soundBtn {
+  background: linear-gradient(135deg, #4fc3f7 0%, #0288d1 100%);
+  border: 3px solid #b3e5fc;
+  box-shadow: 0 6px 12px rgba(2, 136, 209, 0.25);
+}
+
+#resetBtn {
+  background: linear-gradient(135deg, #ffb300 0%, #ff6f00 100%);
+  border: 3px solid #ffe082;
+  box-shadow: 0 6px 12px rgba(255, 111, 0, 0.25);
+}
+
+.footer-hint {
+  font-size: 2.3vh;
+  font-weight: bold;
+  color: #1b5e20;
+  text-shadow: 0 2px 2px rgba(255, 255, 255, 0.8);
+  animation: breathingText 2s infinite ease-in-out;
+}
+
+@keyframes breathingText {
+  0%, 100% { opacity: 0.75; transform: scale(0.97); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+/* ===== 滿版慶祝特效 ===== */
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.celebration-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-balloon {
+  position: absolute;
+  bottom: -15vh;
+  font-size: 8vh;
+  filter: drop-shadow(0 5px 8px rgba(0,0,0,0.15));
+  animation: balloonRiseUp 4s linear forwards;
+}
+
+@keyframes balloonRiseUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translateY(-120vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+/* 通關棋盤震動特效 */
+.celebrate-board {
+  animation: wobbleBoard 0.6s ease-in-out 3;
+}
+
+@keyframes wobbleBoard {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.02) rotate(0.5deg); }
+  75% { transform: scale(1.02) rotate(-0.5deg); }
+}
