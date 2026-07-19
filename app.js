@@ -149,6 +149,7 @@ let boardState = [];
 let flippedCount = 0;
 let isCelebrating = false;
 let soundEnabled = true;
+let speechUnlocked = false; // 用於解鎖 iOS / iPadOS Safari 的語音
 
 // Web Audio API 實體
 let audioCtx = null;
@@ -160,6 +161,21 @@ function initAudio() {
   }
   if (audioCtx.state === 'suspended') {
     audioCtx.resume();
+  }
+}
+
+// 在使用者點擊事件中解鎖 iOS 語音播放權限
+function unlockSpeech() {
+  if (speechUnlocked) return;
+  try {
+    if (window.speechSynthesis) {
+      // 播放一個靜音的語音來解鎖
+      const utterance = new SpeechSynthesisUtterance('');
+      window.speechSynthesis.speak(utterance);
+      speechUnlocked = true;
+    }
+  } catch (e) {
+    console.warn("解鎖語音失敗:", e);
   }
 }
 
@@ -380,13 +396,20 @@ function speakAnimalName(name) {
   if (!soundEnabled) return;
   try {
     if (window.speechSynthesis) {
-      // 終止目前正在發音的內容，避免多卡片連續點擊時語音重疊
-      window.speechSynthesis.cancel();
-      
       const utterance = new SpeechSynthesisUtterance(name);
       utterance.lang = 'zh-TW';
       utterance.rate = 0.88; // 稍慢的速度，讓 3 歲幼兒聽得清晰
       utterance.pitch = 1.35; // 提高音調，更像卡通、更活潑
+      
+      // 偵測是否為 iOS 或 iPadOS (包括 iPad 桌面版 UA 模擬)
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      
+      // iOS / iPadOS Safari 頻繁調用 cancel() 會導致 SpeechSynthesis 語音引擎卡死發不出聲音，因此在 iOS 上跳過 cancel()
+      if (!isIOS) {
+        window.speechSynthesis.cancel();
+      }
+      
       window.speechSynthesis.speak(utterance);
     }
   } catch (e) {
@@ -594,8 +617,8 @@ function renderBoard() {
     card.appendChild(back);
     cell.appendChild(card);
     
-    // 使用 pointerdown 以求最即時的觸碰反應 (避免 300ms 觸控延遲)
-    card.addEventListener('pointerdown', (e) => handleCardClick(e, animal.id));
+    // 使用 click 觸發，確保 iOS / iPadOS 能正確識別為使用者點擊手勢以解鎖語音
+    card.addEventListener('click', (e) => handleCardClick(e, animal.id));
     
     boardEl.appendChild(cell);
   });
@@ -606,6 +629,9 @@ function handleCardClick(event, id) {
   event.preventDefault();
   
   if (isCelebrating) return;
+  
+  // 立即嘗試解鎖語音
+  unlockSpeech();
   
   const cardData = boardState.find(c => c.id === id);
   if (!cardData || cardData.flipped) return;
@@ -817,10 +843,11 @@ function startBalloons() {
 
 // 關卡按鈕點擊綁定
 document.querySelectorAll('.theme-card').forEach(card => {
-  card.addEventListener('pointerdown', (e) => {
+  card.addEventListener('click', (e) => {
     e.preventDefault();
     const themeKey = card.dataset.theme;
     initAudio();
+    unlockSpeech();
     playAnimalSynthSound('generic');
     selectTheme(themeKey);
     // 朗讀該主題名稱，讓幼兒有引導感
@@ -837,24 +864,27 @@ document.querySelectorAll('.theme-card').forEach(card => {
 });
 
 // 返回選單按鈕
-document.getElementById('backBtn').addEventListener('pointerdown', (e) => {
+document.getElementById('backBtn').addEventListener('click', (e) => {
   e.preventDefault();
+  unlockSpeech();
   playAnimalSynthSound('generic');
   goBackToSelection();
 });
 
 // 重置棋盤按鈕
-document.getElementById('resetBtn').addEventListener('pointerdown', (e) => {
+document.getElementById('resetBtn').addEventListener('click', (e) => {
   e.preventDefault();
+  unlockSpeech();
   playAnimalSynthSound('generic');
   initGame();
 });
 
 // 聲音切換按鈕
 const soundBtn = document.getElementById('soundBtn');
-soundBtn.addEventListener('pointerdown', (e) => {
+soundBtn.addEventListener('click', (e) => {
   e.preventDefault();
   soundEnabled = !soundEnabled;
+  unlockSpeech();
   if (soundEnabled) {
     soundBtn.querySelector('.btn-icon').textContent = '🔊';
     soundBtn.querySelector('.btn-text').textContent = '有聲音';
@@ -871,8 +901,9 @@ soundBtn.addEventListener('pointerdown', (e) => {
 
 // 吉祥物點擊彩蛋
 const mascotIcon = document.getElementById('mascotIcon');
-mascotIcon.addEventListener('pointerdown', (e) => {
+mascotIcon.addEventListener('click', (e) => {
   e.preventDefault();
+  unlockSpeech();
   playChirpSound();
   
   // 晃動縮放
