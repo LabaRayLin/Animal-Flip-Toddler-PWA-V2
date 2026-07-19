@@ -9,11 +9,11 @@ const THEMES_DATA = {
     textColor: '#1b5e20',
     particleType: 'leaf',
     animals: [
-      { emoji: '🐻', name: '熊熊', color: 'purple' },
-      { emoji: '🦊', name: '狐狸', color: 'orange' },
-      { emoji: '🐿️', name: '松鼠', color: 'orange' },
-      { emoji: '🐰', name: '兔子', color: 'pink' },
-      { emoji: '🦌', name: '小鹿', color: 'yellow' },
+      { emoji: '🐻', name: '熊熊', color: 'purple', image: 'images/animals/bear.png' },
+      { emoji: '🦊', name: '狐狸', color: 'orange', image: 'images/animals/fox.png' },
+      { emoji: '🐿️', name: '松鼠', color: 'orange', image: 'images/animals/squirrel.png' },
+      { emoji: '🐰', name: '兔子', color: 'pink', image: 'images/animals/rabbit.png' },
+      { emoji: '🦌', name: '小鹿', color: 'yellow', image: 'images/animals/deer.png' },
       { emoji: '🦝', name: '浣熊', color: 'blue' },
       { emoji: '🦔', name: '刺蝟', color: 'orange' },
       { emoji: '🦉', name: '貓頭鷹', color: 'purple' },
@@ -608,10 +608,18 @@ function renderBoard() {
     const back = document.createElement('div');
     back.className = `card-back ${animal.color}`;
     
-    const emojiSpan = document.createElement('span');
-    emojiSpan.className = 'animal-emoji';
-    emojiSpan.textContent = animal.emoji;
-    back.appendChild(emojiSpan);
+    if (animal.image) {
+      const img = document.createElement('img');
+      img.className = 'animal-card-img';
+      img.src = animal.image;
+      img.alt = animal.name;
+      back.appendChild(img);
+    } else {
+      const emojiSpan = document.createElement('span');
+      emojiSpan.className = 'animal-emoji';
+      emojiSpan.textContent = animal.emoji;
+      back.appendChild(emojiSpan);
+    }
     
     card.appendChild(front);
     card.appendChild(back);

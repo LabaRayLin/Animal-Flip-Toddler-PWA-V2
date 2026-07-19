@@ -6,7 +6,13 @@ const ASSETS = [
   'app.js',
   'manifest.json',
   'icons/icon-192.png',
-  'icons/icon-512.png'
+  'icons/icon-512.png',
+  'images/forest.png',
+  'images/ocean.png',
+  'images/farm.png',
+  'images/dinosaur.png',
+  'images/insect.png',
+  'images/polar.png'
 ];
 
 self.addEventListener('install', (event) => {
