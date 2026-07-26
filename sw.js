@@ -1,4 +1,4 @@
-const CACHE_NAME = 'animal-flip-toddler-v11';
+const CACHE_NAME = 'animal-flip-toddler-v12';
 const ASSETS = [
   './',
   'index.html',
