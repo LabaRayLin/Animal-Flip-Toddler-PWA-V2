@@ -1,4 +1,4 @@
-const CACHE_NAME = 'animal-flip-toddler-v6';
+const CACHE_NAME = 'animal-flip-toddler-v7';
 const ASSETS = [
   './',
   'index.html',
@@ -13,8 +13,8 @@ const ASSETS = [
   'images/dinosaur.png',
   'images/insect.png',
   'images/polar.png',
-  'images/animals/bear.png',
-  'images/animals/deer.png',
+  'images/animals/bear.jpg',
+  'images/animals/deer.jpg',
   'images/animals/dino_ankylo.jpg',
   'images/animals/dino_brachi.jpg',
   'images/animals/dino_crocodile.jpg',
@@ -23,7 +23,6 @@ const ASSETS = [
   'images/animals/dino_eagle.jpg',
   'images/animals/dino_iguana.jpg',
   'images/animals/dino_mammoth.jpg',
-  'images/animals/dino_pterosaur.png',
   'images/animals/dino_scorpion.jpg',
   'images/animals/dino_snake.jpg',
   'images/animals/dino_tortoise.jpg',
@@ -47,13 +46,14 @@ const ASSETS = [
   'images/animals/forest_raccoon.jpg',
   'images/animals/forest_skunk.jpg',
   'images/animals/forest_wolf.jpg',
-  'images/animals/fox.png',
+  'images/animals/fox.jpg',
   'images/animals/insect_bee.jpg',
   'images/animals/insect_beetle.jpg',
   'images/animals/insect_butterfly.jpg',
   'images/animals/insect_caterpillar.jpg',
   'images/animals/insect_cricket.jpg',
   'images/animals/insect_frog.jpg',
+  'images/animals/insect_gecko.jpg',
   'images/animals/insect_grasshopper.jpg',
   'images/animals/insect_ladybug.jpg',
   'images/animals/insect_snail.jpg',
@@ -82,8 +82,8 @@ const ASSETS = [
   'images/animals/polar_walrus.jpg',
   'images/animals/polar_whale.jpg',
   'images/animals/polar_wolf.jpg',
-  'images/animals/rabbit.png',
-  'images/animals/squirrel.png'
+  'images/animals/rabbit.jpg',
+  'images/animals/squirrel.jpg'
 ];
 
 self.addEventListener('install', (event) => {

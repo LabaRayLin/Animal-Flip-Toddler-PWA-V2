@@ -9,11 +9,11 @@ const THEMES_DATA = {
     textColor: '#1b5e20',
     particleType: 'leaf',
     animals: [
-      { emoji: '🐻', name: '熊熊',   color: 'purple', image: 'images/animals/bear.png' },
-      { emoji: '🦊', name: '狐狸',   color: 'orange', image: 'images/animals/fox.png' },
-      { emoji: '🐿️', name: '松鼠',   color: 'orange', image: 'images/animals/squirrel.png' },
-      { emoji: '🐰', name: '兔子',   color: 'pink',   image: 'images/animals/rabbit.png' },
-      { emoji: '🦌', name: '小鹿',   color: 'yellow', image: 'images/animals/deer.png' },
+      { emoji: '🐻', name: '熊熊',   color: 'purple', image: 'images/animals/bear.jpg' },
+      { emoji: '🦊', name: '狐狸',   color: 'orange', image: 'images/animals/fox.jpg' },
+      { emoji: '🐿️', name: '松鼠',   color: 'orange', image: 'images/animals/squirrel.jpg' },
+      { emoji: '🐰', name: '兔子',   color: 'pink',   image: 'images/animals/rabbit.jpg' },
+      { emoji: '🦌', name: '小鹿',   color: 'yellow', image: 'images/animals/deer.jpg' },
       { emoji: '🦝', name: '浣熊',   color: 'blue',   image: 'images/animals/forest_raccoon.jpg' },
       { emoji: '🦔', name: '刺蝟',   color: 'orange', image: 'images/animals/forest_hedgehog.jpg' },
       { emoji: '🦉', name: '貓頭鷹', color: 'purple', image: 'images/animals/forest_owl.jpg' },
@@ -112,7 +112,7 @@ const THEMES_DATA = {
       { emoji: '🪲', name: '獨角仙', color: 'green',  image: 'images/animals/insect_beetle.jpg' },
       { emoji: '🦗', name: '蟋蟀',   color: 'orange', image: 'images/animals/insect_cricket.jpg' },
       { emoji: '🐸', name: '青蛙',   color: 'green',  image: 'images/animals/insect_frog.jpg' },
-      { emoji: '🦎', name: '守宮',   color: 'yellow' }
+      { emoji: '🦎', name: '守宮',   color: 'yellow', image: 'images/animals/insect_gecko.jpg' }
     ]
   },
   polar: {
