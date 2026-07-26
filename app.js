@@ -614,6 +614,15 @@ function renderBoard() {
       img.className = 'animal-card-img';
       img.src = animal.image;
       img.alt = animal.name;
+      img.loading = 'eager';
+      img.onerror = () => {
+        // 圖片載入失敗時，自動改為顯示 Emoji
+        img.remove();
+        const emojiSpan = document.createElement('span');
+        emojiSpan.className = 'animal-emoji';
+        emojiSpan.textContent = animal.emoji;
+        back.appendChild(emojiSpan);
+      };
       back.appendChild(img);
     } else {
       const emojiSpan = document.createElement('span');
