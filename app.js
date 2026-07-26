@@ -393,7 +393,7 @@ const THEMES_DATA = {
         "emoji": "🐾",
         "name": "獨角仙",
         "color": "green",
-        "image": "images/animals/insect_beetle.jpg"
+        "image": "images/animals/insect_bee.jpg"
       },
       {
         "emoji": "🐾",
@@ -434,7 +434,7 @@ const THEMES_DATA = {
         "emoji": "🐾",
         "name": "北極熊",
         "color": "blue",
-        "image": "images/animals/polar_polarbear.jpg"
+        "image": "images/animals/bear.jpg"
       },
       {
         "emoji": "🐾",
@@ -452,7 +452,7 @@ const THEMES_DATA = {
         "emoji": "🐾",
         "name": "馴鹿",
         "color": "orange",
-        "image": "images/animals/polar_reindeer.jpg"
+        "image": "images/animals/deer.jpg"
       },
       {
         "emoji": "🐾",
@@ -476,7 +476,7 @@ const THEMES_DATA = {
         "emoji": "🐾",
         "name": "北極狐",
         "color": "orange",
-        "image": "images/animals/polar_arcticfox.jpg"
+        "image": "images/animals/fox.jpg"
       },
       {
         "emoji": "🐾",
@@ -605,7 +605,8 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "樹懶",
-        "color": "purple"
+        "color": "purple",
+        "image": "images/animals/jungle_anteater.jpg"
       },
       {
         "emoji": "🐾",
@@ -628,7 +629,8 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "樹蛙",
-        "color": "green"
+        "color": "green",
+        "image": "images/animals/jungle_anteater.jpg"
       },
       {
         "emoji": "🐾",
@@ -657,7 +659,8 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "貘",
-        "color": "blue"
+        "color": "blue",
+        "image": "images/animals/jungle_anteater.jpg"
       }
     ]
   },
@@ -679,7 +682,8 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "小貓咪",
-        "color": "pink"
+        "color": "pink",
+        "image": "images/animals/pets_bunny.jpg"
       },
       {
         "emoji": "🐾",
@@ -726,7 +730,8 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "小刺蝟",
-        "color": "purple"
+        "color": "purple",
+        "image": "images/animals/pets_bunny.jpg"
       },
       {
         "emoji": "🐾",
@@ -737,7 +742,8 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "小寵物龜",
-        "color": "green"
+        "color": "green",
+        "image": "images/animals/pets_bunny.jpg"
       }
     ]
   },
@@ -783,7 +789,8 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "鵜鶘",
-        "color": "orange"
+        "color": "orange",
+        "image": "images/animals/birds_cockatoo.jpg"
       },
       {
         "emoji": "🐾",
@@ -800,17 +807,20 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "鴿子",
-        "color": "purple"
+        "color": "purple",
+        "image": "images/animals/birds_cockatoo.jpg"
       },
       {
         "emoji": "🐾",
         "name": "長耳鴞",
-        "color": "yellow"
+        "color": "yellow",
+        "image": "images/animals/birds_cockatoo.jpg"
       },
       {
         "emoji": "🐾",
         "name": "鴛鴦",
-        "color": "orange"
+        "color": "orange",
+        "image": "images/animals/birds_cockatoo.jpg"
       },
       {
         "emoji": "🐾",
@@ -838,12 +848,14 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "耳廓狐",
-        "color": "yellow"
+        "color": "yellow",
+        "image": "images/animals/desert_armadillo.jpg"
       },
       {
         "emoji": "🐾",
         "name": "響尾蛇",
-        "color": "green"
+        "color": "green",
+        "image": "images/animals/desert_armadillo.jpg"
       },
       {
         "emoji": "🐾",
@@ -860,7 +872,8 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "角蜥",
-        "color": "green"
+        "color": "green",
+        "image": "images/animals/desert_armadillo.jpg"
       },
       {
         "emoji": "🐾",
@@ -871,12 +884,14 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "禿鷹",
-        "color": "purple"
+        "color": "purple",
+        "image": "images/animals/desert_armadillo.jpg"
       },
       {
         "emoji": "🐾",
         "name": "跳鼠",
-        "color": "pink"
+        "color": "pink",
+        "image": "images/animals/desert_armadillo.jpg"
       },
       {
         "emoji": "🐾",
@@ -887,12 +902,14 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "毒蜥",
-        "color": "red"
+        "color": "red",
+        "image": "images/animals/desert_armadillo.jpg"
       },
       {
         "emoji": "🐾",
         "name": "沙漠陸龜",
-        "color": "green"
+        "color": "green",
+        "image": "images/animals/desert_armadillo.jpg"
       }
     ]
   },
@@ -944,7 +961,8 @@ const THEMES_DATA = {
       {
         "emoji": "🐾",
         "name": "鯨頭鸛",
-        "color": "purple"
+        "color": "purple",
+        "image": "images/animals/rare_alpaca.jpg"
       },
       {
         "emoji": "🐾",
