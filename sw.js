@@ -1,4 +1,4 @@
-const CACHE_NAME = 'animal-flip-toddler-v7';
+const CACHE_NAME = 'animal-flip-toddler-v8';
 const ASSETS = [
   './',
   'index.html',
@@ -20,12 +20,12 @@ const ASSETS = [
   'images/animals/dino_crocodile.jpg',
   'images/animals/dino_diplodocus.jpg',
   'images/animals/dino_dodo.jpg',
-  'images/animals/dino_eagle.jpg',
   'images/animals/dino_iguana.jpg',
   'images/animals/dino_mammoth.jpg',
+  'images/animals/dino_pterosaur.jpg',
   'images/animals/dino_scorpion.jpg',
   'images/animals/dino_snake.jpg',
-  'images/animals/dino_tortoise.jpg',
+  'images/animals/dino_spider.jpg',
   'images/animals/dino_trex.jpg',
   'images/animals/farm_cat.jpg',
   'images/animals/farm_chick.jpg',
@@ -47,6 +47,7 @@ const ASSETS = [
   'images/animals/forest_skunk.jpg',
   'images/animals/forest_wolf.jpg',
   'images/animals/fox.jpg',
+  'images/animals/insect_ant.jpg',
   'images/animals/insect_bee.jpg',
   'images/animals/insect_beetle.jpg',
   'images/animals/insect_butterfly.jpg',

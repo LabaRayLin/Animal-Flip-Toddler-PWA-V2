@@ -87,7 +87,7 @@ const THEMES_DATA = {
       { emoji: '🐢', name: '甲龍',   color: 'green',  image: 'images/animals/dino_ankylo.jpg' },
       { emoji: '🐍', name: '蛇蛇',   color: 'green',  image: 'images/animals/dino_snake.jpg' },
       { emoji: '🦂', name: '蠍子',   color: 'orange', image: 'images/animals/dino_scorpion.jpg' },
-      { emoji: '🦅', name: '翼龍',   color: 'blue',   image: 'images/animals/dino_pterosaur.png' },
+      { emoji: '🦅', name: '翼龍',   color: 'blue',   image: 'images/animals/dino_pterosaur.jpg' },
       { emoji: '🕷️', name: '蜘蛛',   color: 'purple', image: 'images/animals/dino_spider.jpg' },
       { emoji: '🦕', name: '腕龍',   color: 'yellow', image: 'images/animals/dino_diplodocus.jpg' }
     ]
@@ -104,9 +104,9 @@ const THEMES_DATA = {
       { emoji: '🐝', name: '蜜蜂',   color: 'yellow', image: 'images/animals/insect_bee.jpg' },
       { emoji: '🦋', name: '蝴蝶',   color: 'pink',   image: 'images/animals/insect_butterfly.jpg' },
       { emoji: '🐞', name: '瓢蟲',   color: 'pink',   image: 'images/animals/insect_ladybug.jpg' },
-      { emoji: '🐜', name: '螞蟻',   color: 'purple' },
+      { emoji: '🐜', name: '螞蟻',   color: 'purple', image: 'images/animals/insect_ant.jpg' },
       { emoji: '🦗', name: '蚱蜢',   color: 'green',  image: 'images/animals/insect_grasshopper.jpg' },
-      { emoji: '🕷️', name: '蜘蛛',   color: 'purple', image: 'images/animals/insect_spider.jpg' },
+      { emoji: '🕷️', name: '蜘蛛',   color: 'purple', image: 'images/animals/dino_spider.jpg' },
       { emoji: '🐌', name: '蝸牛',   color: 'purple', image: 'images/animals/insect_snail.jpg' },
       { emoji: '🐛', name: '毛毛蟲', color: 'green',  image: 'images/animals/insect_caterpillar.jpg' },
       { emoji: '🪲', name: '獨角仙', color: 'green',  image: 'images/animals/insect_beetle.jpg' },
