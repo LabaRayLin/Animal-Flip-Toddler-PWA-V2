@@ -1,141 +1,981 @@
 // 6 大主題與 72 種可愛動物定義
 const THEMES_DATA = {
-  forest: {
-    title: '森林動物 🌲',
-    coverIcon: '🌰', // 橡果
-    colorClass: 'theme-bg-forest',
-    boardClass: 'board-theme-forest',
-    cardCoverClass: 'card-front-forest',
-    textColor: '#1b5e20',
-    particleType: 'leaf',
-    animals: [
-      { emoji: '🐻', name: '熊熊',   color: 'purple', image: 'images/animals/bear.jpg' },
-      { emoji: '🦊', name: '狐狸',   color: 'orange', image: 'images/animals/fox.jpg' },
-      { emoji: '🐿️', name: '松鼠',   color: 'orange', image: 'images/animals/squirrel.jpg' },
-      { emoji: '🐰', name: '兔子',   color: 'pink',   image: 'images/animals/rabbit.jpg' },
-      { emoji: '🦌', name: '小鹿',   color: 'yellow', image: 'images/animals/deer.jpg' },
-      { emoji: '🦝', name: '浣熊',   color: 'blue',   image: 'images/animals/forest_raccoon.jpg' },
-      { emoji: '🦔', name: '刺蝟',   color: 'orange', image: 'images/animals/forest_hedgehog.jpg' },
-      { emoji: '🦉', name: '貓頭鷹', color: 'purple', image: 'images/animals/forest_owl.jpg' },
-      { emoji: '🐺', name: '野狼',   color: 'blue',   image: 'images/animals/forest_wolf.jpg' },
-      { emoji: '🦫', name: '河狸',   color: 'green',  image: 'images/animals/forest_beaver.jpg' },
-      { emoji: '🐗', name: '野豬',   color: 'orange', image: 'images/animals/forest_boar.jpg' },
-      { emoji: '🦨', name: '臭鼬',   color: 'purple', image: 'images/animals/forest_skunk.jpg' }
+  "forest": {
+    "title": "森林動物 🌲",
+    "coverIcon": "🌰",
+    "colorClass": "theme-bg-forest",
+    "boardClass": "board-theme-forest",
+    "cardCoverClass": "card-front-forest",
+    "textColor": "#1b5e20",
+    "particleType": "leaf",
+    "animals": [
+      {
+        "emoji": "🐾",
+        "name": "熊熊",
+        "color": "purple",
+        "image": "images/animals/bear.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "狐狸",
+        "color": "orange",
+        "image": "images/animals/fox.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "松鼠",
+        "color": "orange",
+        "image": "images/animals/squirrel.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "兔子",
+        "color": "pink",
+        "image": "images/animals/rabbit.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "小鹿",
+        "color": "yellow",
+        "image": "images/animals/deer.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "浣熊",
+        "color": "blue",
+        "image": "images/animals/forest_raccoon.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "刺蝟",
+        "color": "orange",
+        "image": "images/animals/forest_hedgehog.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "貓頭鷹",
+        "color": "purple",
+        "image": "images/animals/forest_owl.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "野狼",
+        "color": "blue",
+        "image": "images/animals/forest_wolf.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "河狸",
+        "color": "green",
+        "image": "images/animals/forest_beaver.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "野豬",
+        "color": "orange",
+        "image": "images/animals/forest_boar.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "臭鼬",
+        "color": "purple",
+        "image": "images/animals/forest_skunk.jpg"
+      }
     ]
   },
-  ocean: {
-    title: '海洋世界 🌊',
-    coverIcon: '🐚', // 貝殼
-    colorClass: 'theme-bg-ocean',
-    boardClass: 'board-theme-ocean',
-    cardCoverClass: 'card-front-ocean',
-    textColor: '#006064',
-    particleType: 'bubble',
-    animals: [
-      { emoji: '🐬', name: '海豚',   color: 'blue',   image: 'images/animals/ocean_dolphin.jpg' },
-      { emoji: '🐳', name: '鯨魚',   color: 'blue',   image: 'images/animals/ocean_whale.jpg' },
-      { emoji: '🦈', name: '鯊魚',   color: 'blue',   image: 'images/animals/ocean_shark.jpg' },
-      { emoji: '🐙', name: '章魚',   color: 'pink',   image: 'images/animals/ocean_octopus.jpg' },
-      { emoji: '🦑', name: '烏賊',   color: 'pink',   image: 'images/animals/ocean_squid.jpg' },
-      { emoji: '🦀', name: '螃蟹',   color: 'orange', image: 'images/animals/ocean_crab.jpg' },
-      { emoji: '🦞', name: '龍蝦',   color: 'orange', image: 'images/animals/ocean_lobster.jpg' },
-      { emoji: '🐢', name: '烏龜',   color: 'green',  image: 'images/animals/ocean_turtle.jpg' },
-      { emoji: '🐠', name: '熱帶魚', color: 'yellow', image: 'images/animals/ocean_fish.jpg' },
-      { emoji: '🐡', name: '河豚',   color: 'yellow', image: 'images/animals/ocean_pufferfish.jpg' },
-      { emoji: '🪼', name: '水母',   color: 'purple', image: 'images/animals/ocean_jellyfish.jpg' },
-      { emoji: '🦭', name: '海豹',   color: 'blue',   image: 'images/animals/ocean_seal.jpg' }
+  "ocean": {
+    "title": "海洋世界 🌊",
+    "coverIcon": "🐚",
+    "colorClass": "theme-bg-ocean",
+    "boardClass": "board-theme-ocean",
+    "cardCoverClass": "card-front-ocean",
+    "textColor": "#006064",
+    "particleType": "bubble",
+    "animals": [
+      {
+        "emoji": "🐾",
+        "name": "海豚",
+        "color": "blue",
+        "image": "images/animals/ocean_dolphin.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "鯨魚",
+        "color": "blue",
+        "image": "images/animals/ocean_whale.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "鯊魚",
+        "color": "blue",
+        "image": "images/animals/ocean_shark.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "章魚",
+        "color": "pink",
+        "image": "images/animals/ocean_octopus.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "烏賊",
+        "color": "pink",
+        "image": "images/animals/ocean_squid.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "螃蟹",
+        "color": "orange",
+        "image": "images/animals/ocean_crab.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "龍蝦",
+        "color": "orange",
+        "image": "images/animals/ocean_lobster.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "烏龜",
+        "color": "green",
+        "image": "images/animals/ocean_turtle.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "熱帶魚",
+        "color": "yellow",
+        "image": "images/animals/ocean_fish.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "河豚",
+        "color": "yellow",
+        "image": "images/animals/ocean_pufferfish.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "水母",
+        "color": "purple",
+        "image": "images/animals/ocean_jellyfish.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "海豹",
+        "color": "blue",
+        "image": "images/animals/ocean_seal.jpg"
+      }
     ]
   },
-  farm: {
-    title: '農場派對 🚜',
-    coverIcon: '🚪', // 木門
-    colorClass: 'theme-bg-farm',
-    boardClass: 'board-theme-farm',
-    cardCoverClass: 'card-front-farm',
-    textColor: '#e65100',
-    particleType: 'petal',
-    animals: [
-      { emoji: '🐮', name: '牛牛',   color: 'blue',   image: 'images/animals/farm_cow.jpg' },
-      { emoji: '🐷', name: '豬豬',   color: 'pink',   image: 'images/animals/farm_pig.jpg' },
-      { emoji: '🐑', name: '羊咩咩', color: 'pink',   image: 'images/animals/farm_sheep.jpg' },
-      { emoji: '🐴', name: '馬馬',   color: 'orange', image: 'images/animals/farm_horse.jpg' },
-      { emoji: '🐔', name: '小雞',   color: 'yellow', image: 'images/animals/farm_chick.jpg' },
-      { emoji: '🦆', name: '鴨鴨',   color: 'yellow', image: 'images/animals/farm_duck.jpg' },
-      { emoji: '🪿', name: '鵝鵝',   color: 'yellow', image: 'images/animals/farm_goose.jpg' },
-      { emoji: '🐐', name: '山羊',   color: 'green',  image: 'images/animals/farm_goat.jpg' },
-      { emoji: '🐶', name: '狗狗',   color: 'orange', image: 'images/animals/farm_dog.jpg' },
-      { emoji: '🐱', name: '貓咪',   color: 'blue',   image: 'images/animals/farm_cat.jpg' },
-      { emoji: '🐰', name: '兔子',   color: 'pink',   image: 'images/animals/farm_rabbit.jpg' },
-      { emoji: '🫏', name: '驢子',   color: 'purple', image: 'images/animals/farm_donkey.jpg' }
+  "farm": {
+    "title": "農場派對 🚜",
+    "coverIcon": "🚪",
+    "colorClass": "theme-bg-farm",
+    "boardClass": "board-theme-farm",
+    "cardCoverClass": "card-front-farm",
+    "textColor": "#e65100",
+    "particleType": "petal",
+    "animals": [
+      {
+        "emoji": "🐾",
+        "name": "牛牛",
+        "color": "blue",
+        "image": "images/animals/farm_cow.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "豬豬",
+        "color": "pink",
+        "image": "images/animals/farm_pig.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "羊咩咩",
+        "color": "pink",
+        "image": "images/animals/farm_sheep.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "馬馬",
+        "color": "orange",
+        "image": "images/animals/farm_horse.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "小雞",
+        "color": "yellow",
+        "image": "images/animals/farm_chick.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "鴨鴨",
+        "color": "yellow",
+        "image": "images/animals/farm_duck.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "鵝鵝",
+        "color": "yellow",
+        "image": "images/animals/farm_goose.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "山羊",
+        "color": "green",
+        "image": "images/animals/farm_goat.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "狗狗",
+        "color": "orange",
+        "image": "images/animals/farm_dog.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "貓咪",
+        "color": "blue",
+        "image": "images/animals/farm_cat.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "兔子",
+        "color": "pink",
+        "image": "images/animals/farm_rabbit.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "驢子",
+        "color": "purple",
+        "image": "images/animals/farm_donkey.jpg"
+      }
     ]
   },
-  dinosaur: {
-    title: '恐龍樂園 🦖',
-    coverIcon: '🥚', // 恐龍蛋
-    colorClass: 'theme-bg-dinosaur',
-    boardClass: 'board-theme-dinosaur',
-    cardCoverClass: 'card-front-dinosaur',
-    textColor: '#b71c1c',
-    particleType: 'star',
-    animals: [
-      { emoji: '🦖', name: '暴龍',   color: 'green',  image: 'images/animals/dino_trex.jpg' },
-      { emoji: '🦕', name: '雷龍',   color: 'blue',   image: 'images/animals/dino_brachi.jpg' },
-      { emoji: '🦣', name: '猛獁象', color: 'purple', image: 'images/animals/dino_mammoth.jpg' },
-      { emoji: '🦤', name: '渡渡鳥', color: 'yellow', image: 'images/animals/dino_dodo.jpg' },
-      { emoji: '🐊', name: '鱷魚',   color: 'green',  image: 'images/animals/dino_crocodile.jpg' },
-      { emoji: '🦎', name: '蜥蜴',   color: 'orange', image: 'images/animals/dino_iguana.jpg' },
-      { emoji: '🐢', name: '甲龍',   color: 'green',  image: 'images/animals/dino_ankylo.jpg' },
-      { emoji: '🐍', name: '蛇蛇',   color: 'green',  image: 'images/animals/dino_snake.jpg' },
-      { emoji: '🦂', name: '蠍子',   color: 'orange', image: 'images/animals/dino_scorpion.jpg' },
-      { emoji: '🦅', name: '翼龍',   color: 'blue',   image: 'images/animals/dino_pterosaur.jpg' },
-      { emoji: '🕷️', name: '蜘蛛',   color: 'purple', image: 'images/animals/dino_spider.jpg' },
-      { emoji: '🦕', name: '腕龍',   color: 'yellow', image: 'images/animals/dino_diplodocus.jpg' }
+  "dinosaur": {
+    "title": "恐龍樂園 🦖",
+    "coverIcon": "🥚",
+    "colorClass": "theme-bg-dinosaur",
+    "boardClass": "board-theme-dinosaur",
+    "cardCoverClass": "card-front-dinosaur",
+    "textColor": "#b71c1c",
+    "particleType": "star",
+    "animals": [
+      {
+        "emoji": "🐾",
+        "name": "暴龍",
+        "color": "green",
+        "image": "images/animals/dino_trex.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "雷龍",
+        "color": "blue",
+        "image": "images/animals/dino_brachi.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "猛獁象",
+        "color": "purple",
+        "image": "images/animals/dino_mammoth.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "渡渡鳥",
+        "color": "yellow",
+        "image": "images/animals/dino_dodo.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "鱷魚",
+        "color": "green",
+        "image": "images/animals/dino_crocodile.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "蜥蜴",
+        "color": "orange",
+        "image": "images/animals/dino_iguana.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "甲龍",
+        "color": "green",
+        "image": "images/animals/dino_ankylo.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "蛇蛇",
+        "color": "green",
+        "image": "images/animals/dino_snake.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "蠍子",
+        "color": "orange",
+        "image": "images/animals/dino_scorpion.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "迅猛龍",
+        "color": "blue",
+        "image": "images/animals/dino_velociraptor.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "蜘蛛",
+        "color": "purple",
+        "image": "images/animals/dino_spider.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "腕龍",
+        "color": "yellow",
+        "image": "images/animals/dino_diplodocus.jpg"
+      }
     ]
   },
-  insect: {
-    title: '昆蟲王國 🐞',
-    coverIcon: '🍃', // 綠葉
-    colorClass: 'theme-bg-insect',
-    boardClass: 'board-theme-insect',
-    cardCoverClass: 'card-front-insect',
-    textColor: '#33691e',
-    particleType: 'pollen',
-    animals: [
-      { emoji: '🐝', name: '蜜蜂',   color: 'yellow', image: 'images/animals/insect_bee.jpg' },
-      { emoji: '🦋', name: '蝴蝶',   color: 'pink',   image: 'images/animals/insect_butterfly.jpg' },
-      { emoji: '🐞', name: '瓢蟲',   color: 'pink',   image: 'images/animals/insect_ladybug.jpg' },
-      { emoji: '🐜', name: '螞蟻',   color: 'purple', image: 'images/animals/insect_ant.jpg' },
-      { emoji: '🦗', name: '蚱蜢',   color: 'green',  image: 'images/animals/insect_grasshopper.jpg' },
-      { emoji: '🕷️', name: '蜘蛛',   color: 'purple', image: 'images/animals/dino_spider.jpg' },
-      { emoji: '🐌', name: '蝸牛',   color: 'purple', image: 'images/animals/insect_snail.jpg' },
-      { emoji: '🐛', name: '毛毛蟲', color: 'green',  image: 'images/animals/insect_caterpillar.jpg' },
-      { emoji: '🪲', name: '獨角仙', color: 'green',  image: 'images/animals/insect_beetle.jpg' },
-      { emoji: '🦗', name: '蟋蟀',   color: 'orange', image: 'images/animals/insect_cricket.jpg' },
-      { emoji: '🐸', name: '青蛙',   color: 'green',  image: 'images/animals/insect_frog.jpg' },
-      { emoji: '🦎', name: '守宮',   color: 'yellow', image: 'images/animals/insect_gecko.jpg' }
+  "insect": {
+    "title": "昆蟲王國 🐞",
+    "coverIcon": "🍃",
+    "colorClass": "theme-bg-insect",
+    "boardClass": "board-theme-insect",
+    "cardCoverClass": "card-front-insect",
+    "textColor": "#33691e",
+    "particleType": "pollen",
+    "animals": [
+      {
+        "emoji": "🐾",
+        "name": "蜜蜂",
+        "color": "yellow",
+        "image": "images/animals/insect_bee.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "蝴蝶",
+        "color": "pink",
+        "image": "images/animals/insect_butterfly.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "瓢蟲",
+        "color": "pink",
+        "image": "images/animals/insect_ladybug.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "螞蟻",
+        "color": "purple",
+        "image": "images/animals/insect_ant.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "蚱蜢",
+        "color": "green",
+        "image": "images/animals/insect_grasshopper.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "蜘蛛",
+        "color": "purple",
+        "image": "images/animals/insect_spider.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "蝸牛",
+        "color": "purple",
+        "image": "images/animals/insect_snail.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "毛毛蟲",
+        "color": "green",
+        "image": "images/animals/insect_caterpillar.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "獨角仙",
+        "color": "green",
+        "image": "images/animals/insect_beetle.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "蟋蟀",
+        "color": "orange",
+        "image": "images/animals/insect_cricket.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "青蛙",
+        "color": "green",
+        "image": "images/animals/insect_frog.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "守宮",
+        "color": "yellow",
+        "image": "images/animals/insect_gecko.jpg"
+      }
     ]
   },
-  polar: {
-    title: '極地冰原 ❄️',
-    coverIcon: '❄️', // 冰晶
-    colorClass: 'theme-bg-polar',
-    boardClass: 'board-theme-polar',
-    cardCoverClass: 'card-front-polar',
-    textColor: '#004d40',
-    particleType: 'snow',
-    animals: [
-      { emoji: '🐧',   name: '企鵝',   color: 'blue',   image: 'images/animals/polar_penguin.jpg' },
-      { emoji: '🐻‍❄️', name: '北極熊', color: 'blue',   image: 'images/animals/polar_polarbear.jpg' },
-      { emoji: '🦭',   name: '海豹',   color: 'blue',   image: 'images/animals/polar_seal.jpg' },
-      { emoji: '🐋',   name: '藍鯨',   color: 'blue',   image: 'images/animals/polar_whale.jpg' },
-      { emoji: '🦌',   name: '馴鹿',   color: 'orange', image: 'images/animals/polar_reindeer.jpg' },
-      { emoji: '🐺',   name: '凍原狼', color: 'purple', image: 'images/animals/polar_wolf.jpg' },
-      { emoji: '🦉',   name: '雪鴞',   color: 'purple', image: 'images/animals/polar_owl.jpg' },
-      { emoji: '🐰',   name: '雪兔',   color: 'pink',   image: 'images/animals/polar_hare.jpg' },
-      { emoji: '🦊',   name: '北極狐', color: 'orange', image: 'images/animals/polar_arcticfox.jpg' },
-      { emoji: '🐟',   name: '凍凍魚', color: 'blue',   image: 'images/animals/polar_fish.jpg' },
-      { emoji: '🦀',   name: '帝王蟹', color: 'orange', image: 'images/animals/polar_crab.jpg' },
-      { emoji: '🦭',   name: '海象',   color: 'purple', image: 'images/animals/polar_walrus.jpg' }
+  "polar": {
+    "title": "極地冰原 ❄️",
+    "coverIcon": "❄️",
+    "colorClass": "theme-bg-polar",
+    "boardClass": "board-theme-polar",
+    "cardCoverClass": "card-front-polar",
+    "textColor": "#004d40",
+    "particleType": "snow",
+    "animals": [
+      {
+        "emoji": "🐾",
+        "name": "企鵝",
+        "color": "blue",
+        "image": "images/animals/polar_penguin.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "北極熊",
+        "color": "blue",
+        "image": "images/animals/polar_polarbear.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "海豹",
+        "color": "blue",
+        "image": "images/animals/polar_seal.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "藍鯨",
+        "color": "blue",
+        "image": "images/animals/polar_whale.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "馴鹿",
+        "color": "orange",
+        "image": "images/animals/polar_reindeer.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "凍原狼",
+        "color": "purple",
+        "image": "images/animals/polar_wolf.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "雪鴞",
+        "color": "purple",
+        "image": "images/animals/polar_owl.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "雪兔",
+        "color": "pink",
+        "image": "images/animals/polar_hare.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "北極狐",
+        "color": "orange",
+        "image": "images/animals/polar_arcticfox.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "凍凍魚",
+        "color": "blue",
+        "image": "images/animals/polar_fish.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "帝王蟹",
+        "color": "orange",
+        "image": "images/animals/polar_crab.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "海象",
+        "color": "purple",
+        "image": "images/animals/polar_walrus.jpg"
+      }
+    ]
+  },
+  "savanna": {
+    "title": "草原萬獸 🦁",
+    "coverIcon": "🌾",
+    "colorClass": "theme-bg-savanna",
+    "boardClass": "board-theme-savanna",
+    "cardCoverClass": "card-front-savanna",
+    "textColor": "#e65100",
+    "particleType": "spark",
+    "animals": [
+      {
+        "emoji": "🐾",
+        "name": "獅子",
+        "color": "orange",
+        "image": "images/animals/savanna_lion.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "大象",
+        "color": "blue",
+        "image": "images/animals/savanna_elephant.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "長頸鹿",
+        "color": "yellow",
+        "image": "images/animals/savanna_giraffe.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "獵豹",
+        "color": "yellow",
+        "image": "images/animals/savanna_cheetah.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "河馬",
+        "color": "purple",
+        "image": "images/animals/savanna_hippo.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "犀牛",
+        "color": "blue",
+        "image": "images/animals/savanna_rhino.png"
+      },
+      {
+        "emoji": "🐾",
+        "name": "斑馬",
+        "color": "pink",
+        "image": "images/animals/savanna_zebra.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "狐獴",
+        "color": "orange",
+        "image": "images/animals/savanna_meerkat.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "鬣狗",
+        "color": "purple",
+        "image": "images/animals/savanna_hyena.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "鴕鳥",
+        "color": "pink",
+        "image": "images/animals/savanna_ostrich.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "大猩猩",
+        "color": "blue",
+        "image": "images/animals/savanna_gorilla.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "羚羊",
+        "color": "yellow",
+        "image": "images/animals/savanna_gazelle.jpg"
+      }
+    ]
+  },
+  "jungle": {
+    "title": "熱帶雨林 🌴",
+    "coverIcon": "🌴",
+    "colorClass": "theme-bg-jungle",
+    "boardClass": "board-theme-jungle",
+    "cardCoverClass": "card-front-jungle",
+    "textColor": "#1b5e20",
+    "particleType": "leaf",
+    "animals": [
+      {
+        "emoji": "🐾",
+        "name": "金剛鸚鵡",
+        "color": "pink",
+        "image": "images/animals/jungle_parrot.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "巨嘴鳥",
+        "color": "yellow",
+        "image": "images/animals/jungle_toucan.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "樹懶",
+        "color": "purple"
+      },
+      {
+        "emoji": "🐾",
+        "name": "美洲豹",
+        "color": "orange",
+        "image": "images/animals/jungle_jaguar.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "變色龍",
+        "color": "green",
+        "image": "images/animals/jungle_chameleon.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "水豚",
+        "color": "orange",
+        "image": "images/animals/jungle_capybara.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "樹蛙",
+        "color": "green"
+      },
+      {
+        "emoji": "🐾",
+        "name": "食蟻獸",
+        "color": "purple",
+        "image": "images/animals/jungle_anteater.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "黑猩猩",
+        "color": "blue",
+        "image": "images/animals/jungle_chimp.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "蟒蛇",
+        "color": "green",
+        "image": "images/animals/jungle_python.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "長臂猿",
+        "color": "yellow",
+        "image": "images/animals/jungle_gibbon.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "貘",
+        "color": "blue"
+      }
+    ]
+  },
+  "pets": {
+    "title": "可愛寵物 🏠",
+    "coverIcon": "🦴",
+    "colorClass": "theme-bg-pets",
+    "boardClass": "board-theme-pets",
+    "cardCoverClass": "card-front-pets",
+    "textColor": "#880e4f",
+    "particleType": "petal",
+    "animals": [
+      {
+        "emoji": "🐾",
+        "name": "柴犬",
+        "color": "orange",
+        "image": "images/animals/pets_shiba.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "小貓咪",
+        "color": "pink"
+      },
+      {
+        "emoji": "🐾",
+        "name": "倉鼠",
+        "color": "yellow",
+        "image": "images/animals/pets_hamster.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "天竺鼠",
+        "color": "orange",
+        "image": "images/animals/pets_guineapig.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "垂耳兔",
+        "color": "pink",
+        "image": "images/animals/pets_bunny.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "貴賓狗",
+        "color": "purple",
+        "image": "images/animals/pets_poodle.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "金魚",
+        "color": "orange",
+        "image": "images/animals/pets_goldfish.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "虎皮鸚鵡",
+        "color": "green",
+        "image": "images/animals/pets_parakeet.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "龍貓",
+        "color": "blue",
+        "image": "images/animals/pets_chinchilla.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "小刺蝟",
+        "color": "purple"
+      },
+      {
+        "emoji": "🐾",
+        "name": "雪貂",
+        "color": "yellow",
+        "image": "images/animals/pets_ferret.png"
+      },
+      {
+        "emoji": "🐾",
+        "name": "小寵物龜",
+        "color": "green"
+      }
+    ]
+  },
+  "birds": {
+    "title": "飛鳥王國 🪶",
+    "coverIcon": "🪶",
+    "colorClass": "theme-bg-birds",
+    "boardClass": "board-theme-birds",
+    "cardCoverClass": "card-front-birds",
+    "textColor": "#01579b",
+    "particleType": "feather",
+    "animals": [
+      {
+        "emoji": "🐾",
+        "name": "老鷹",
+        "color": "blue",
+        "image": "images/animals/birds_eagle.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "孔雀",
+        "color": "blue",
+        "image": "images/animals/birds_peacock.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "蜂鳥",
+        "color": "pink",
+        "image": "images/animals/birds_hummingbird.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "紅鶴",
+        "color": "pink",
+        "image": "images/animals/birds_flamingo.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "天鵝",
+        "color": "purple",
+        "image": "images/animals/birds_swan.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "鵜鶘",
+        "color": "orange"
+      },
+      {
+        "emoji": "🐾",
+        "name": "啄木鳥",
+        "color": "yellow",
+        "image": "images/animals/birds_woodpecker.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "翠鳥",
+        "color": "blue",
+        "image": "images/animals/birds_kingfisher.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "鴿子",
+        "color": "purple"
+      },
+      {
+        "emoji": "🐾",
+        "name": "長耳鴞",
+        "color": "yellow"
+      },
+      {
+        "emoji": "🐾",
+        "name": "鴛鴦",
+        "color": "orange"
+      },
+      {
+        "emoji": "🐾",
+        "name": "巴丹鸚鵡",
+        "color": "yellow",
+        "image": "images/animals/birds_cockatoo.jpg"
+      }
+    ]
+  },
+  "desert": {
+    "title": "沙漠冒險 🌵",
+    "coverIcon": "🌵",
+    "colorClass": "theme-bg-desert",
+    "boardClass": "board-theme-desert",
+    "cardCoverClass": "card-front-desert",
+    "textColor": "#e65100",
+    "particleType": "dust",
+    "animals": [
+      {
+        "emoji": "🐾",
+        "name": "駱駝",
+        "color": "orange",
+        "image": "images/animals/desert_camel.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "耳廓狐",
+        "color": "yellow"
+      },
+      {
+        "emoji": "🐾",
+        "name": "響尾蛇",
+        "color": "green"
+      },
+      {
+        "emoji": "🐾",
+        "name": "蠍子",
+        "color": "purple",
+        "image": "images/animals/desert_scorpion.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "沙漠貓",
+        "color": "yellow",
+        "image": "images/animals/desert_sandcat.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "角蜥",
+        "color": "green"
+      },
+      {
+        "emoji": "🐾",
+        "name": "走鵑",
+        "color": "blue",
+        "image": "images/animals/desert_roadrunner.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "禿鷹",
+        "color": "purple"
+      },
+      {
+        "emoji": "🐾",
+        "name": "跳鼠",
+        "color": "pink"
+      },
+      {
+        "emoji": "🐾",
+        "name": "犰狳",
+        "color": "orange",
+        "image": "images/animals/desert_armadillo.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "毒蜥",
+        "color": "red"
+      },
+      {
+        "emoji": "🐾",
+        "name": "沙漠陸龜",
+        "color": "green"
+      }
+    ]
+  },
+  "rare": {
+    "title": "奇妙珍獸 🐨",
+    "coverIcon": "🐨",
+    "colorClass": "theme-bg-rare",
+    "boardClass": "board-theme-rare",
+    "cardCoverClass": "card-front-rare",
+    "textColor": "#2e7d32",
+    "particleType": "star",
+    "animals": [
+      {
+        "emoji": "🐾",
+        "name": "貓熊",
+        "color": "blue",
+        "image": "images/animals/rare_panda.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "無尾熊",
+        "color": "purple",
+        "image": "images/animals/rare_koala.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "袋鼠",
+        "color": "orange",
+        "image": "images/animals/rare_kangaroo.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "小貓熊",
+        "color": "pink",
+        "image": "images/animals/rare_redpanda.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "羊駝",
+        "color": "yellow",
+        "image": "images/animals/rare_alpaca.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "鴨嘴獸",
+        "color": "blue",
+        "image": "images/animals/rare_platypus.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "鯨頭鸛",
+        "color": "purple"
+      },
+      {
+        "emoji": "🐾",
+        "name": "水獺",
+        "color": "blue",
+        "image": "images/animals/rare_otter.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "穿山甲",
+        "color": "orange",
+        "image": "images/animals/rare_pangolin.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "懶猴",
+        "color": "yellow",
+        "image": "images/animals/rare_slowloris.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "獨角鯨",
+        "color": "blue",
+        "image": "images/animals/rare_narwhal.jpg"
+      },
+      {
+        "emoji": "🐾",
+        "name": "短尾矮袋鼠",
+        "color": "pink",
+        "image": "images/animals/rare_quokka.jpg"
+      }
     ]
   }
 };

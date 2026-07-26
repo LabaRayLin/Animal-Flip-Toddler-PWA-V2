@@ -117,6 +117,37 @@ html, body {
   filter: blur(5px);
 }
 
+/* 草原主題背景 */
+.theme-bg-savanna {
+  background: linear-gradient(180deg, #fff3e0 0%, #ffe0b2 50%, #ffcc80 100%);
+  position: relative;
+}
+/* 熱帶雨林主題背景 */
+.theme-bg-jungle {
+  background: linear-gradient(180deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+  position: relative;
+}
+/* 可愛寵物主題背景 */
+.theme-bg-pets {
+  background: linear-gradient(180deg, #fce4ec 0%, #f8bbd0 50%, #f48fb1 100%);
+  position: relative;
+}
+/* 飛鳥王國主題背景 */
+.theme-bg-birds {
+  background: linear-gradient(180deg, #e1f5fe 0%, #b3e5fc 50%, #81d4fa 100%);
+  position: relative;
+}
+/* 沙漠冒險主題背景 */
+.theme-bg-desert {
+  background: linear-gradient(180deg, #fff8e1 0%, #ffecb3 50%, #ffe082 100%);
+  position: relative;
+}
+/* 奇妙珍獸主題背景 */
+.theme-bg-rare {
+  background: linear-gradient(180deg, #f3e5f5 0%, #e1bee7 50%, #ce93d8 100%);
+  position: relative;
+}
+
 /* ===== 大氣粒子效果 ===== */
 .particle-container {
   position: absolute;
@@ -259,15 +290,23 @@ html, body {
   text-shadow: 0 2px 4px rgba(255, 255, 255, 0.7);
 }
 
-/* 關卡卡片網格 (3x2 佈局) */
+/* 關卡卡片網格 (12主題佈局) */
 .theme-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 3vh 2.5vw;
-  width: 95%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2vh 1.8vw;
+  width: 96%;
   flex-grow: 1;
   margin-bottom: 2vh;
+}
+
+@media (max-width: 768px) {
+  .theme-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1.5vh 1.5vw;
+  }
 }
 
 /* 關卡按鈕/卡片 */
@@ -547,6 +586,36 @@ html, body {
   background: #e0f2f1;
   box-shadow: 0 15px 35px rgba(0, 77, 64, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
 }
+.board-theme-savanna {
+  border-color: #e65100;
+  background: #ffe0b2;
+  box-shadow: 0 15px 35px rgba(230, 81, 0, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
+}
+.board-theme-jungle {
+  border-color: #1b5e20;
+  background: #c8e6c9;
+  box-shadow: 0 15px 35px rgba(27, 94, 32, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
+}
+.board-theme-pets {
+  border-color: #880e4f;
+  background: #f8bbd0;
+  box-shadow: 0 15px 35px rgba(136, 14, 79, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
+}
+.board-theme-birds {
+  border-color: #01579b;
+  background: #b3e5fc;
+  box-shadow: 0 15px 35px rgba(1, 87, 155, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
+}
+.board-theme-desert {
+  border-color: #ff6f00;
+  background: #ffecb3;
+  box-shadow: 0 15px 35px rgba(255, 111, 0, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
+}
+.board-theme-rare {
+  border-color: #4a148c;
+  background: #e1bee7;
+  box-shadow: 0 15px 35px rgba(74, 20, 140, 0.2), inset 0 6px 12px rgba(0,0,0,0.15);
+}
 
 /* ===== 3D 卡片與翻轉效果 ===== */
 .cell {
@@ -637,6 +706,55 @@ html, body {
 .card-front-polar {
   background: radial-gradient(circle at 35% 35%, #80deea 0%, #00838f 100%);
   border-color: #e0f2f1;
+}
+.card-front-savanna {
+  background: radial-gradient(circle at 35% 35%, #ffb74d 0%, #f57c00 100%);
+  border-color: #fff3e0;
+}
+.card-front-jungle {
+  background: radial-gradient(circle at 35% 35%, #81c784 0%, #2e7d32 100%);
+  border-color: #e8f5e9;
+}
+.card-front-pets {
+  background: radial-gradient(circle at 35% 35%, #f48fb1 0%, #c2185b 100%);
+  border-color: #fce4ec;
+}
+.card-front-birds {
+  background: radial-gradient(circle at 35% 35%, #4fc3f7 0%, #0288d1 100%);
+  border-color: #e1f5fe;
+}
+.card-front-desert {
+  background: radial-gradient(circle at 35% 35%, #ffe082 0%, #ff8f00 100%);
+  border-color: #fff8e1;
+}
+.card-front-rare {
+  background: radial-gradient(circle at 35% 35%, #ce93d8 0%, #7b1fa2 100%);
+  border-color: #f3e5f5;
+}
+
+.theme-card.savanna {
+  background: linear-gradient(135deg, #ffb74d 0%, #f57c00 100%);
+  border: 4px solid #ffe0b2;
+}
+.theme-card.jungle {
+  background: linear-gradient(135deg, #81c784 0%, #2e7d32 100%);
+  border: 4px solid #c8e6c9;
+}
+.theme-card.pets {
+  background: linear-gradient(135deg, #f48fb1 0%, #c2185b 100%);
+  border: 4px solid #f8bbd0;
+}
+.theme-card.birds {
+  background: linear-gradient(135deg, #4fc3f7 0%, #0288d1 100%);
+  border: 4px solid #b3e5fc;
+}
+.theme-card.desert {
+  background: linear-gradient(135deg, #ffe082 0%, #ff8f00 100%);
+  border: 4px solid #ffecb3;
+}
+.theme-card.rare {
+  background: linear-gradient(135deg, #ce93d8 0%, #7b1fa2 100%);
+  border: 4px solid #e1bee7;
 }
 
 /* ===== 卡片正面 (Flipped, 顯示動物) ===== */
